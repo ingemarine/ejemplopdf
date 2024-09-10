@@ -24,18 +24,51 @@ class ReporteController {
             ]
         );
         
-        //  $productos = ActiveRecord::fetchArray(query:"SELECT * FROM productos");
-        //  $html = $router->load(view: 'pdf/reporte', datos:[
-        //     'productos' => $productos
-        //   ]);
+        $sql = ActiveRecord::fetchArray("SELECT * FROM productos");
+        $resultado = $sql;
+        $html = $router->load('pdf/reporte', [
+            'resultado' => $resultado
+        ]);
 
-        //  $css = $router->load(view: 'pdf/syles');
-        //crear lo que dice en pdf
-        $mpdf->WriteHTML( "<h1>Reporte para crear un nuevo PDF</h1>");
+        $header = $router->load('pdf/header', []);
+        $footer = $router->load('pdf/footer',[]);
+        $css = $router->load('pdf/styles', []);
+
+        $mpdf->SetHTMLHeader($header);
+        $mpdf->SetHTMLFooter($footer);
+
+        $mpdf->WriteHTML($css);
+        $mpdf->WriteHTML($html);
         $mpdf->Output();
 
 
-        // $router->render(view: 'pdf/reporte', []);
+
+
+        //   $productos = ActiveRecord::fetchArray(query:"SELECT * FROM productos");
+        //   $html = $router->load(view: 'pdf/reporte', datos:[
+        //      'productos' => $productos
+        //    ]);
+
+        // $mpdf->AliasNbPages(alias: '[pagetotl');
+        //   $css = $router->load(view: 'pdf/syles');
+
+        //   $header = $router->load(view: 'pdf/header');
+        //   $footer = $router->load(view: 'pdf/footer');
+
+        //   $mpdf->SetHTMLHeader(header: $header);
+        //   $mpdf->SetHTMLFooter(footer:$footer);
+
+
+
+        // //crear lo que dice en pdf
+        // $mpdf->WriteHTML(html: $css, mode: HTMLParseMode:: HEADER_BODY);
+
+        // $mpdf->WriteHTML(html: $html, mode: HTMLParseMode:: HTML_BODY);
+
+        // $mpdf->Output();
+
+
+        // // $router->render(view: 'pdf/reporte', []);
     }
 
 }
