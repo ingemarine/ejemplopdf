@@ -17,7 +17,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="/ejemplo/">
-                <img src="<?= asset('./images/cit.png') ?>" width="35px'" alt="cit" >
+                <img src="<?= asset('./images/image.png') ?>" width="35px'" alt="cit" >
                 Aplicaciones
             </a>
             <div class="collapse navbar-collapse" id="navbarToggler">
@@ -29,7 +29,7 @@
   
                     <div class="nav-item dropdown " >
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <i class="bi bi-gear me-2"></i>Dropdown
+                            <i class="bi bi-gear me-2"></i>Herramientas
                         </a>
                         <ul class="dropdown-menu  dropdown-menu-dark "id="dropwdownRevision" style="margin: 0;">
                             <!-- <h6 class="dropdown-header">Información</h6> -->
