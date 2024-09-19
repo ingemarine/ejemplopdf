@@ -18,6 +18,12 @@ class ActiveRecord {
         self::$db = $database;
     }
 
+    //agregamos para obtener en base de datos 17sep2024
+    public static function getDB(): PDO
+    {
+        return self::$db;
+    }
+
     public static function setAlerta($tipo, $mensaje) {
         static::$alertas[$tipo][] = $mensaje;
     }
